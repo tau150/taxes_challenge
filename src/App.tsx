@@ -1,18 +1,24 @@
 import { Box } from "@chakra-ui/react";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+import AuthContextProvider from "@/contexts/AuthContext";
 import Routes from "@/routes/routes";
 
-function App() {
+const App = () => {
+  const queryClient = new QueryClient();
+
   return (
-    <Box>
-      <Router>
-        <Switch>
-          <Routes />
-        </Switch>
-      </Router>
-    </Box>
+    <QueryClientProvider client={queryClient}>
+      <AuthContextProvider>
+        <Box>
+          <Router>
+            <Routes />
+          </Router>
+        </Box>
+      </AuthContextProvider>
+    </QueryClientProvider>
   );
-}
+};
 
 export default App;

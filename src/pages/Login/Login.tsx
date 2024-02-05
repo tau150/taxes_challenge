@@ -16,7 +16,7 @@ import {
 
 import logo from "/images/taxdown-logo.webp";
 
-import { isValidEmail, isValidPassword } from "@/auth/domain/AuthUser";
+import { isValidEmail, isValidPassword } from "@/auth/domain/Auth";
 
 const Login = () => {
   const [formValues, setFormValues] = useState({ email: "", password: "" });
