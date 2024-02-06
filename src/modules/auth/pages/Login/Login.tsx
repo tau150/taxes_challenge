@@ -10,24 +10,57 @@ import {
   Input,
   FormControl,
   FormLabel,
+  Text,
   Button,
   FormErrorMessage,
+  useToast,
 } from "@chakra-ui/react";
+import { useHistory } from "react-router-dom";
 
-import logo from "/images/taxdown-logo.webp";
+import { ROUTES } from "@/routes/routes.types";
 
-import { isValidEmail, isValidPassword } from "@/auth/domain/Auth";
+import logo from "/images/taxdown-logo.png";
+
+import {
+  isValidEmail,
+  isValidPassword,
+  isExistingUser,
+  AuthUser,
+} from "@/modules/auth/domain/Auth";
+import { useLogin } from "@/modules/auth/hooks/useLogin";
+import { useAuth } from "@/modules/auth/hooks/useAuth";
+import { TOAST_GENERIC_ERROR } from "@/constants/toast";
 
 const Login = () => {
   const [formValues, setFormValues] = useState({ email: "", password: "" });
+  const [isInvalidUser, setIsInvalidUser] = useState(false);
+  const history = useHistory();
+  const toast = useToast();
+
   const emailInputRef: RefObject<HTMLInputElement> = useRef(null);
+  const { setUser } = useAuth();
+  const mutation = useLogin({
+    onSuccess: (data) => {
+      if (!isExistingUser(data.status)) {
+        setIsInvalidUser(true);
+
+        return;
+      }
+      setUser(data as AuthUser);
+      history.push(ROUTES.TAXES);
+    },
+    onError: () => {
+      toast({ ...TOAST_GENERIC_ERROR });
+    },
+  });
 
   useEffect(() => {
     emailInputRef.current?.focus();
   }, []);
 
-  const handleSubmit = () => {
-    console.log("aca!");
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    mutation.mutate(formValues);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,7 +78,7 @@ const Login = () => {
 
   return (
     <VStack h="100vh" justify="center">
-      <Image src={logo} w="180px" />
+      <Image mb="8" src={logo} w="180px" />
       <Card>
         <CardHeader>
           <Heading fontSize="xl" textAlign="center">
@@ -79,8 +112,20 @@ const Login = () => {
                 onChange={handleChange}
               />
             </FormControl>
+            {isInvalidUser && (
+              <Text color="red.600" mt="4" textAlign="center">
+                Invalid credentials
+              </Text>
+            )}
             <Box mt="4">
-              <Button colorScheme="teal" isDisabled={!isValidForm} size="sm" w="100%">
+              <Button
+                colorScheme="teal"
+                isDisabled={!isValidForm}
+                isLoading={mutation.isPending}
+                size="sm"
+                type="submit"
+                w="100%"
+              >
                 Send
               </Button>
             </Box>

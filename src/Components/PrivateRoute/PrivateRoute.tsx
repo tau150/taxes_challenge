@@ -1,6 +1,7 @@
 import { Route, Redirect } from "react-router-dom";
 
-import { useAuth } from "@/hooks/useAuth";
+import PrivateLayout from "@/Layouts/PrivateLayout";
+import { useAuth } from "@/modules/auth/hooks/useAuth";
 
 interface Props {
   children: React.ReactNode;
@@ -16,7 +17,7 @@ const PrivateRoute = ({ children, exact, path }: Props) => {
       exact={exact}
       path={path}
       render={() => {
-        return isAuth ? children : <Redirect to="/" />;
+        return isAuth ? <PrivateLayout>{children}</PrivateLayout> : <Redirect to="/" />;
       }}
     />
   );

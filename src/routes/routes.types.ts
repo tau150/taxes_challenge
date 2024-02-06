@@ -1,4 +1,5 @@
 export enum ROUTES {
   "ROOT" = "/",
-  "HOME" = "/home",
+  "TAXES" = "/taxes",
+  "TAX_SUBMISSION" = "/taxes/:id/submission",
 }

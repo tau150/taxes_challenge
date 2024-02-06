@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import { useState } from "react";
 
-import { AuthUser } from "@/auth/domain/Auth";
+import { AuthUser } from "@/modules/auth/domain/Auth";
 
 interface AuthContext {
   user: AuthUser | null;

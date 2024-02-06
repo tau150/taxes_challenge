@@ -1,0 +1,134 @@
+{
+  "users": [
+    {
+      "id": "40b9",
+      "email": "test@mail.com",
+      "password": "123456",
+      "name": "Test User"
+    }
+  ],
+  "taxes":  [
+    {
+     "id":  "2",
+     "name":  "Tax Season 2020",
+     "year": "2020"
+    },
+    {
+      "id":  "1",
+      "name":  "Tax Season 2021",
+      "year": "2021"
+     },
+    {
+      "id":  "3",
+      "name":  "Tax Season 2022",
+      "year": "2022"
+     },
+     {
+      "id":  "4",
+      "name":  "Tax Season 2023",
+      "year": "2023"
+     }
+  ],
+  "form": [
+    {
+    "id": "1",
+    "inputFields":  [
+      {
+        "id": "name",
+        "label": "Name",
+        "placeholder": "Your first name",
+        "type": "text",
+        "maxLength": 20
+      },
+      {
+        "id": "surname",
+        "label": "Surname",
+        "placeholder": "Your last name",
+        "type": "text",
+        "maxLength": 40
+      },
+      {
+        "id": "age",
+        "label": "Age",
+        "placeholder": "Your age",
+        "type": "number"
+      }
+      ]
+    },
+    {
+      "id": "2",
+      "inputFields":  [
+        {
+          "id": "name",
+          "label": "Name",
+          "placeholder": "Your first name",
+          "type": "text",
+          "maxLength": 20
+        },
+        {
+          "id": "surname",
+          "label": "Surname",
+          "placeholder": "Your last name",
+          "type": "text",
+          "maxLength": 40
+        },
+        {
+          "id": "age",
+          "label": "Age",
+          "placeholder": "Your age",
+          "type": "number"
+        }
+        ]
+      },
+      {
+        "id": "3",
+        "inputFields":  [
+          {
+            "id": "name",
+            "label": "Name",
+            "placeholder": "Your first name",
+            "type": "text",
+            "maxLength": 20
+          },
+          {
+            "id": "surname",
+            "label": "Surname",
+            "placeholder": "Your last name",
+            "type": "text",
+            "maxLength": 40
+          },
+          {
+            "id": "age",
+            "label": "Age",
+            "placeholder": "Your age",
+            "type": "number"
+          }
+          ]
+        },
+        {
+          "id": "4",
+          "inputFields":  [
+            {
+              "id": "name",
+              "label": "Name",
+              "placeholder": "Your first name",
+              "type": "text",
+              "maxLength": 20
+            },
+            {
+              "id": "surname",
+              "label": "Surname",
+              "placeholder": "Your last name",
+              "type": "text",
+              "maxLength": 40
+            },
+            {
+              "id": "age",
+              "label": "Age",
+              "placeholder": "Your age",
+              "type": "number"
+            }
+            ]
+          }
+  ]
+}
