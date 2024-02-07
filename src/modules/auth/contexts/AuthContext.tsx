@@ -22,11 +22,7 @@ interface Props {
 }
 
 const AuthContextProvider = ({ children }: Props) => {
-  const [user, setUser] = useState<AuthUser | null>({
-    email: "sasdf@mail.com",
-    name: "Santi",
-    id: "2323",
-  });
+  const [user, setUser] = useState<AuthUser | null>(null);
 
   const logOut = () => {
     setUser(null);

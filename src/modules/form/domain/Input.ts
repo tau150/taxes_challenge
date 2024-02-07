@@ -1,11 +1,11 @@
-enum INPUT_TYPE {
+export enum INPUT_TYPE {
   TEXT = "text",
   NUMBER = "number",
   EMAIL = "email",
   RANGE = "range",
 }
 
-enum VALIDATION_ATTRIBUTES {
+export enum VALIDATION_ATTRIBUTES {
   MAX_LENGTH = "maxLength",
   MIN_LENGTH = "minLength",
   PATTERN = "pattern",

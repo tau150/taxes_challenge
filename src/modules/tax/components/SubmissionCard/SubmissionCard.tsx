@@ -1,4 +1,4 @@
-import { Card, CardBody, Text } from "@chakra-ui/react";
+import { Card, CardBody, Text, Box } from "@chakra-ui/react";
 
 interface Props {
   name: string;
@@ -9,7 +9,8 @@ interface Props {
 
 const SubmissionCard = ({ name, surname, age, year }: Props) => {
   return (
-    <Card maxW={["100%", "400px"]} minW={["100%", "260px"]} mt={["2", "12"]}>
+    <Card borderTopRadius="10px" maxW={["100%", "400px"]} minW={["100%", "260px"]} mt={["2", "12"]}>
+      <Box bg="green.200" borderTopRadius="10px" h="20px" />
       <CardBody>
         <Text>
           <Text as="span" fontWeight="bold">
