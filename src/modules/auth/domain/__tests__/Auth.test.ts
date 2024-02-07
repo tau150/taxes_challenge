@@ -1,6 +1,7 @@
 import { expect } from "vitest";
 
 import { STATUS, isValidEmail, isValidPassword, isExistingUser } from "../Auth";
+
 describe("Auth domain", () => {
   describe("isValidEmail", () => {
     it("should return true for a valid email", () => {

@@ -48,3 +48,14 @@ export const postForm = async ({ id, data }: PostFormParams): Promise<Tax> => {
     body: updatedTax,
   });
 };
+
+export const deleteSubmission = async ({ id, taxId }: Record<string, string>): Promise<Tax> => {
+  const tax = await find(taxId);
+  const newSubmissions = tax.submissions?.filter((submission) => submission.id !== id);
+  const updatedTax = { ...tax, submissions: newSubmissions };
+
+  return fetcher(`/taxes/${taxId}`, {
+    method: HttpMethod.PUT,
+    body: updatedTax,
+  });
+};

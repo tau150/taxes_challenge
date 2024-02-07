@@ -31,6 +31,7 @@ const AuthContextProvider = ({ children }: Props) => {
   });
 
   const logOut = () => {
+    localStorage.removeItem(LOCAL_STORAGE_KEY);
     setUser(null);
   };
 

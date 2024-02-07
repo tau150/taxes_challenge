@@ -1,10 +1,9 @@
 import { Box, HStack } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 
-import { Tax } from "../../domain/Tax";
-
 import { renderTaxItems } from "./Taxes.utils";
 
+import { Tax } from "@/modules/tax/domain/Tax";
 import { generatePath } from "@/utils/routing";
 import { ROUTES } from "@/routes/routes.types";
 import { useGetTaxes } from "@/modules/tax/hooks/useGetTaxes";
@@ -22,10 +21,13 @@ const Taxes = () => {
     history.push(route);
   };
 
-  const handleListButtonClick = (id: string) => {
+  const handleListButtonClick = (id: string, year: string) => {
     const route = generatePath(ROUTES.TAX_SUBMISSIONS, { value: id });
 
-    history.push(route);
+    history.push({
+      pathname: route,
+      search: `?year=${year}`,
+    });
   };
 
   return (

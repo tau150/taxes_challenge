@@ -13,12 +13,12 @@ import {
 import { BsSendArrowUpFill } from "react-icons/bs";
 import { CiBoxList } from "react-icons/ci";
 
-import type { Tax } from "../../domain/Tax";
+import type { Tax } from "@/modules/tax/domain/Tax";
 
 export const renderTaxItems = (
   data: Tax[],
   onClickSendButton: (id: string) => void,
-  onClickListButton: (id: string) => void,
+  onClickListButton: (id: string, year: string) => void,
 ): React.ReactNode => {
   return (
     <>
@@ -36,7 +36,7 @@ export const renderTaxItems = (
                       colorScheme="teal"
                       leftIcon={<Icon as={CiBoxList} />}
                       variant="ghost"
-                      onClick={() => onClickListButton(tax.id)}
+                      onClick={() => onClickListButton(tax.id, tax.year)}
                     />
                   </Tooltip>
                   <Tooltip hasArrow label="Send submission" placement="top">

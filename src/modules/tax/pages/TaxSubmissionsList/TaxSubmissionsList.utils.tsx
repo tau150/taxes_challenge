@@ -15,7 +15,7 @@ export const renderSubmissionsData = (
       <HStack flexGrow="1" justify="center">
         <VStack mt="6">
           <Heading as="h4" size="md" textAlign="center">
-            There are no submissions for this Tax report, check the applied filters
+            There are no submissions, please check the applied filters
           </Heading>
           <HStack>
             <Link to={ROUTES.TAXES}>
@@ -37,8 +37,10 @@ export const renderSubmissionsData = (
       <Box key={submission.id}>
         <SubmissionCard
           age={submission.age}
+          id={submission.id}
           name={submission.name}
           surname={submission.surname}
+          taxId={submission.taxId}
           year={submission.year}
         />
       </Box>
@@ -73,6 +75,7 @@ export const getSubmissionsList = (data?: Tax[]) => {
     if (tax.submissions) {
       const newSubmission = tax.submissions.map((sub) => {
         sub.year = tax.year;
+        sub.taxId = tax.id;
 
         return sub;
       });

@@ -1,16 +1,17 @@
-import { Box, Card, Heading, HStack, VStack, Divider, Flex } from "@chakra-ui/react";
+import { Box, Card, Heading, VStack, Divider, Flex } from "@chakra-ui/react";
 import { useMemo } from "react";
 
+import { useSearchParams } from "@/hooks/useSearchParams";
 import FiltersSelector from "@/modules/tax/pages/TaxSubmissionsList/components/FilterSelector/FilterSelector";
 import { renderSubmissionsData } from "@/modules/tax/pages/TaxSubmissionsList/TaxSubmissionsList.utils";
 import { useGetTaxes } from "@/modules/tax/hooks/useGetTaxes";
 import LoadingFullPage from "@/Components/LoadingFullPage/LoadingFullPage";
 import SectionError from "@/Components/SectionError/SectionError";
+import { useFilters } from "@/hooks/useFilters";
 import {
   generateFilters,
   getSubmissionsList,
 } from "@/modules/tax/pages/TaxSubmissionsList/TaxSubmissionsList.utils";
-import { useFilters } from "@/hooks/useFilters";
 
 enum FILTER_TYPE {
   NAME = "name",
@@ -28,13 +29,14 @@ const FILTERS = {
 
 const TaxSubmissionsList = () => {
   const { data, isError, isLoading } = useGetTaxes();
+  const { year } = useSearchParams(FILTER_TYPE.YEAR);
   const lists = useMemo(() => getSubmissionsList(data), [data]);
   const { handleFilter, filteredResults, resetFilters, appliedFilters } = useFilters(
-    FILTERS,
+    { ...FILTERS, [FILTER_TYPE.YEAR]: year },
     lists,
   );
 
-  if (isLoading || !data) return <LoadingFullPage />;
+  if (isLoading) return <LoadingFullPage />;
 
   const filters = lists && generateFilters(lists);
 

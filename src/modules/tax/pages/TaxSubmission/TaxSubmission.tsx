@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useId } from "react";
 import {
   Box,
   Card,
@@ -18,7 +19,7 @@ import { useForm } from "react-hook-form";
 
 import { usePostTaxForm } from "@/modules/tax/hooks/usePostTaxForm";
 import { ROUTES } from "@/routes/routes.types";
-import { TOAST_GENERIC_ERROR } from "@/constants/toast";
+import { TOAST_GENERIC_ERROR, TOAST_GENERIC_SUCCESS } from "@/constants/toast";
 import SectionError from "@/Components/SectionError/SectionError";
 import { useGetTaxForm } from "@/modules/tax/hooks/useGetTaxForm";
 import LoadingFullPage from "@/Components/LoadingFullPage/LoadingFullPage";
@@ -26,11 +27,12 @@ import LoadingFullPage from "@/Components/LoadingFullPage/LoadingFullPage";
 const TaxSubmission = () => {
   const { id } = useParams<{ id: string }>();
   const { data, isLoading, isError } = useGetTaxForm(id);
-
+  const submissionId = useId();
   const history = useHistory();
   const toast = useToast();
   const { mutate } = usePostTaxForm({
     onSuccess: () => {
+      toast({ ...TOAST_GENERIC_SUCCESS, description: "The submission was created successfully" });
       history.push(ROUTES.TAX_SUBMISSIONS);
     },
     onError: () => toast({ ...TOAST_GENERIC_ERROR }),
@@ -44,6 +46,7 @@ const TaxSubmission = () => {
   if (isLoading || !data) return <LoadingFullPage />;
 
   const onSubmit = (data: Record<string, string>) => {
+    data.id = submissionId;
     mutate({ id, data });
   };
 
