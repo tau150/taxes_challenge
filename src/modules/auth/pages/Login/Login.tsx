@@ -38,7 +38,7 @@ const Login = () => {
   const toast = useToast();
 
   const emailInputRef: RefObject<HTMLInputElement> = useRef(null);
-  const { setUser } = useAuth();
+  const { logIn } = useAuth();
   const mutation = useLogin({
     onSuccess: (data) => {
       if (!isExistingUser(data.status)) {
@@ -46,7 +46,7 @@ const Login = () => {
 
         return;
       }
-      setUser(data as AuthUser);
+      logIn(data as AuthUser);
       history.push(ROUTES.TAXES);
     },
     onError: () => {
