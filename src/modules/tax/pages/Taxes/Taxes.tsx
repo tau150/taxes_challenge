@@ -16,15 +16,23 @@ const Taxes = () => {
 
   if (isLoading) return <LoadingFullPage />;
 
-  const handleButtonClick = (id: string) => {
-    const route = generatePath(ROUTES.TAX_SUBMISSION, { value: id });
+  const handleSendButtonClick = (id: string) => {
+    const route = generatePath(ROUTES.TAX_SUBMISSION_CREATE, { value: id });
+
+    history.push(route);
+  };
+
+  const handleListButtonClick = (id: string) => {
+    const route = generatePath(ROUTES.TAX_SUBMISSIONS, { value: id });
 
     history.push(route);
   };
 
   return (
-    <Box mt="8" p="8">
-      <HStack gap="8">{renderTaxItems(data as Tax[], handleButtonClick)}</HStack>
+    <Box mt="8" p={["2", "8"]}>
+      <HStack gap="8" wrap="wrap">
+        {renderTaxItems(data as Tax[], handleSendButtonClick, handleListButtonClick)}
+      </HStack>
     </Box>
   );
 };

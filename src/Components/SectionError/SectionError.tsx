@@ -1,10 +1,13 @@
 import { Alert, AlertIcon, AlertTitle, AlertDescription } from "@chakra-ui/react";
 
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 }
-const SectionError = ({ title, description }: Props) => {
+const SectionError = ({
+  title = "Opps",
+  description = "We had some issue getting the information, please try again later",
+}: Props) => {
   return (
     <Alert
       alignItems="center"

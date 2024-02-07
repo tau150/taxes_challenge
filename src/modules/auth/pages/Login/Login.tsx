@@ -77,9 +77,9 @@ const Login = () => {
     document.activeElement !== emailInputRef.current;
 
   return (
-    <VStack h="100vh" justify="center">
+    <VStack h="100vh" justify={["start", "center"]} mt={["20", "0"]}>
       <Image mb="8" src={logo} w="180px" />
-      <Card>
+      <Card w={["90%", "initial"]}>
         <CardHeader>
           <Heading fontSize="xl" textAlign="center">
             Login

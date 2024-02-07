@@ -1,9 +1,25 @@
-import { HStack, Card, Text, CardBody, Heading, Divider, Button, Icon } from "@chakra-ui/react";
+import {
+  HStack,
+  Box,
+  Card,
+  Text,
+  CardBody,
+  Heading,
+  Divider,
+  Button,
+  Icon,
+  Tooltip,
+} from "@chakra-ui/react";
 import { BsSendArrowUpFill } from "react-icons/bs";
+import { CiBoxList } from "react-icons/ci";
 
 import type { Tax } from "../../domain/Tax";
 
-export const renderTaxItems = (data: Tax[], onClick: (id: string) => void): React.ReactNode => {
+export const renderTaxItems = (
+  data: Tax[],
+  onClickSendButton: (id: string) => void,
+  onClickListButton: (id: string) => void,
+): React.ReactNode => {
   return (
     <>
       {data.map((tax) => {
@@ -14,12 +30,24 @@ export const renderTaxItems = (data: Tax[], onClick: (id: string) => void): Reac
                 <Heading as="h3" size="md">
                   {tax.name}
                 </Heading>
-                <Button
-                  colorScheme="teal"
-                  leftIcon={<Icon as={BsSendArrowUpFill} />}
-                  variant="ghost"
-                  onClick={() => onClick(tax.id)}
-                />
+                <Box>
+                  <Tooltip hasArrow label="Submissions list" placement="top">
+                    <Button
+                      colorScheme="teal"
+                      leftIcon={<Icon as={CiBoxList} />}
+                      variant="ghost"
+                      onClick={() => onClickListButton(tax.id)}
+                    />
+                  </Tooltip>
+                  <Tooltip hasArrow label="Send submission" placement="top">
+                    <Button
+                      colorScheme="teal"
+                      leftIcon={<Icon as={BsSendArrowUpFill} />}
+                      variant="ghost"
+                      onClick={() => onClickSendButton(tax.id)}
+                    />
+                  </Tooltip>
+                </Box>
               </HStack>
               <Divider mt="2" />
               <Text mt="2">Year: {tax.year}</Text>

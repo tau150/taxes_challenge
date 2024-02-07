@@ -7,57 +7,96 @@
       "name": "Test User"
     }
   ],
-  "taxes":  [
+  "taxes": [
     {
-     "id":  "2",
-     "name":  "Tax Season 2020",
-     "year": "2020"
+      "id": "2",
+      "name": "Tax Season 2020",
+      "year": "2020",
+      "submissions": [
+        {
+          "name": "santi",
+          "surname": "nunen",
+          "age": "86"
+        }
+      ]
     },
     {
-      "id":  "1",
-      "name":  "Tax Season 2021",
-      "year": "2021"
-     },
+      "id": "1",
+      "name": "Tax Season 2021",
+      "year": "2021",
+      "submissions": [
+        {
+          "name": "teast",
+          "surname": "asfrasd",
+          "age": "14"
+        },
+        {
+          "name": "ETST",
+          "surname": "aaf",
+          "age": "23"
+        },
+        {
+          "name": "243234",
+          "surname": "asdas",
+          "age": "23"
+        },
+        {
+          "name": "easf",
+          "surname": "afs",
+          "age": "23"
+        }
+      ]
+    },
     {
-      "id":  "3",
-      "name":  "Tax Season 2022",
+      "id": "3",
+      "name": "Tax Season 2022",
       "year": "2022"
-     },
-     {
-      "id":  "4",
-      "name":  "Tax Season 2023",
-      "year": "2023"
-     }
+    },
+    {
+      "id": "4",
+      "name": "Tax Season 2023",
+      "year": "2023",
+      "submissions": [
+        {
+          "name": "Santi test",
+          "surname": "testing..",
+          "age": "29"
+        }
+      ]
+    }
   ],
   "form": [
     {
-    "id": "1",
-    "inputFields":  [
-      {
-        "id": "name",
-        "label": "Name",
-        "placeholder": "Your first name",
-        "type": "text",
-        "maxLength": 20
-      },
-      {
-        "id": "surname",
-        "label": "Surname",
-        "placeholder": "Your last name",
-        "type": "text",
-        "maxLength": 40
-      },
-      {
-        "id": "age",
-        "label": "Age",
-        "placeholder": "Your age",
-        "type": "number"
-      }
+      "id": "1",
+      "inputFields": [
+        {
+          "id": "name",
+          "label": "Name",
+          "placeholder": "Your first name",
+          "type": "text",
+          "maxLength": 20,
+          "required": true
+        },
+        {
+          "id": "surname",
+          "label": "Surname",
+          "placeholder": "Your last name",
+          "type": "text",
+          "maxLength": 40,
+          "required": true
+        },
+        {
+          "id": "age",
+          "label": "Age",
+          "placeholder": "Your age",
+          "type": "number",
+          "required": true
+        }
       ]
     },
     {
       "id": "2",
-      "inputFields":  [
+      "inputFields": [
         {
           "id": "name",
           "label": "Name",
@@ -78,57 +117,61 @@
           "placeholder": "Your age",
           "type": "number"
         }
-        ]
-      },
-      {
-        "id": "3",
-        "inputFields":  [
-          {
-            "id": "name",
-            "label": "Name",
-            "placeholder": "Your first name",
-            "type": "text",
-            "maxLength": 20
-          },
-          {
-            "id": "surname",
-            "label": "Surname",
-            "placeholder": "Your last name",
-            "type": "text",
-            "maxLength": 40
-          },
-          {
-            "id": "age",
-            "label": "Age",
-            "placeholder": "Your age",
-            "type": "number"
-          }
-          ]
+      ]
+    },
+    {
+      "id": "3",
+      "inputFields": [
+        {
+          "id": "name",
+          "label": "Name",
+          "placeholder": "Your first name",
+          "type": "text",
+          "maxLength": 20
         },
         {
-          "id": "4",
-          "inputFields":  [
-            {
-              "id": "name",
-              "label": "Name",
-              "placeholder": "Your first name",
-              "type": "text",
-              "maxLength": 20
-            },
-            {
-              "id": "surname",
-              "label": "Surname",
-              "placeholder": "Your last name",
-              "type": "text",
-              "maxLength": 40
-            },
-            {
-              "id": "age",
-              "label": "Age",
-              "placeholder": "Your age",
-              "type": "number"
-            }
-            ]
-          }
+          "id": "surname",
+          "label": "Surname",
+          "placeholder": "Your last name",
+          "type": "text",
+          "maxLength": 40,
+          "required": true
+        },
+        {
+          "id": "age",
+          "label": "Age",
+          "placeholder": "Your age",
+          "type": "number",
+          "min": 18
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "inputFields": [
+        {
+          "id": "name",
+          "label": "Name",
+          "placeholder": "Your first name",
+          "type": "text",
+          "maxLength": 20,
+          "required": true
+        },
+        {
+          "id": "surname",
+          "label": "Surname",
+          "placeholder": "Your last name",
+          "type": "text",
+          "maxLength": 40,
+          "required": true
+        },
+        {
+          "id": "age",
+          "label": "Age",
+          "placeholder": "Your age",
+          "type": "number"
+        }
+      ]
+    }
   ]
 }
