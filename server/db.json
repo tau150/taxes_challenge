@@ -23,7 +23,15 @@
     {
       "id": "3",
       "name": "Tax Season 2022",
-      "year": "2022"
+      "year": "2022",
+      "submissions": [
+        {
+          "name": "sergio",
+          "surname": "gamboa",
+          "age": "23",
+          "id": ":rft:"
+        }
+      ]
     },
     {
       "id": "4",
