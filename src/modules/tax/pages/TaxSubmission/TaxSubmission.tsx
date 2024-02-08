@@ -68,6 +68,7 @@ const TaxSubmission = () => {
                       <FormControl isInvalid={!!errors[input.id]}>
                         <FormLabel>{input.label}</FormLabel>
                         <Input
+                          data-testid={`input-${input.id}`}
                           placeholder={input.placeholder}
                           type={input.type}
                           {...register(input.id, {

@@ -1,0 +1,145 @@
+{
+  "users": [
+    {
+      "id": "40b9",
+      "email": "testuser@mail.com",
+      "password": "123456",
+      "name": "Test User"
+    }
+  ],
+  "taxes": [
+    {
+      "id": "1",
+      "name": "Tax Season 2021",
+      "year": "2021",
+      "submissions": [
+        {
+          "name": "Mariah",
+          "surname": "Torp",
+          "age": "65",
+          "id": ":rl:"
+        },
+        {
+          "name": "Colten",
+          "surname": "Reilly",
+          "age": "90",
+          "id": ":rl:"
+        },
+        {
+          "name": "Sadie",
+          "surname": "Mosciski",
+          "age": "68",
+          "id": ":rl:"
+        },
+        {
+          "name": "Golda",
+          "surname": "Simonis",
+          "age": "64",
+          "id": ":rl:"
+        },
+        {
+          "name": "Ford",
+          "surname": "Reichert",
+          "age": "91",
+          "id": ":rl:"
+        },
+        {
+          "name": "Freida",
+          "surname": "Brown",
+          "age": "40",
+          "id": ":rl:"
+        },
+        {
+          "name": "Susie",
+          "surname": "Rath",
+          "age": "29",
+          "id": ":rl:"
+        },
+        {
+          "name": "Roslyn",
+          "surname": "Legros",
+          "age": "63",
+          "id": ":rl:"
+        },
+        {
+          "name": "Ernestin",
+          "surname": "Willms",
+          "age": "46",
+          "id": ":rl:"
+        },
+        {
+          "name": "Braeden",
+          "surname": "Brakus",
+          "age": "69",
+          "id": ":rl:"
+        },
+        {
+          "name": "Shyann",
+          "surname": "Strosin",
+          "age": "21",
+          "id": ":rl:"
+        },
+        {
+          "name": "Dewayne",
+          "surname": "Becker",
+          "age": "86",
+          "id": ":rn:"
+        },
+        {
+          "name": "Kenyatta",
+          "surname": "Harber",
+          "age": "93",
+          "id": ":rl:"
+        },
+        {
+          "name": "Geoffrey",
+          "surname": "Willms",
+          "age": "91",
+          "id": ":rl:"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Tax Season 2022",
+      "year": "2022",
+      "submissions": [
+        {
+          "name": "luciana",
+          "surname": "perez",
+          "age": "54",
+          "id": ":23:"
+        }
+      ]
+    }
+  ],
+  "form": [
+    {
+      "id": "1",
+      "inputFields": [
+        {
+          "id": "name",
+          "label": "Name",
+          "placeholder": "Your first name",
+          "type": "text",
+          "maxLength": 10,
+          "required": true
+        },
+        {
+          "id": "surname",
+          "label": "Surname",
+          "placeholder": "Your last name",
+          "type": "text",
+          "minLength": 2
+        },
+        {
+          "id": "age",
+          "label": "Age",
+          "placeholder": "Your age",
+          "type": "number",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

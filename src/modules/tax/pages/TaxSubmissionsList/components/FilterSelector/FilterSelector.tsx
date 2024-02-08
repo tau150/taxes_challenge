@@ -12,7 +12,12 @@ const FilterSelector = ({ value, title, filters, onSelect }: Props) => {
   return (
     <FormControl mx="6">
       <FormLabel textAlign="center">{title}</FormLabel>
-      <Select placeholder="Select filter" value={value} onChange={onSelect}>
+      <Select
+        data-testid="year-selector"
+        placeholder="Select filter"
+        value={value}
+        onChange={onSelect}
+      >
         {filters.map((option) => {
           return (
             <option key={option} value={option}>

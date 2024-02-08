@@ -11,6 +11,7 @@ export default defineConfig(() => ({
     globals: true,
     environment: "jsdom",
     setupFiles: "./tests/setup.js",
+    include: ["**/*.test.?(c|m)[jt]s?(x)"],
   },
   resolve: {
     alias: {
