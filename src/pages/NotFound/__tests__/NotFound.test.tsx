@@ -1,8 +1,7 @@
 import { expect } from "vitest";
+import { render } from "tests/render";
 
 import NotFound from "../NotFound";
-
-import { render } from "@/tests/render";
 
 describe("NotFound page", () => {
   it("should match with snapshot", () => {

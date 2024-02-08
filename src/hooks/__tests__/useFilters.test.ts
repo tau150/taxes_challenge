@@ -3,7 +3,7 @@ import { ChangeEvent } from "react";
 
 import { useFilters } from "../useFilters";
 
-import { renderHook, act } from "@/tests/render";
+import { renderHook, act } from "tests/render";
 
 describe("useFilters hook", () => {
   it("it should apply filters as expected", async () => {

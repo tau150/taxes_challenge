@@ -13,8 +13,6 @@ interface Props {
 const PrivateLayout = ({ children }: Props) => {
   const { user, logOut } = useAuth();
 
-  const handleButtonClick = () => logOut();
-
   return (
     <Box position="relative">
       <HStack bg="gray.200" h="80px" justify="space-between" p="8">
@@ -23,7 +21,7 @@ const PrivateLayout = ({ children }: Props) => {
         </Link>
         <HStack divider={<StackDivider borderColor="green.400" />} gap="4">
           <p>{user?.name}</p>
-          <Button variant="link" onClick={handleButtonClick}>
+          <Button variant="link" onClick={logOut}>
             Logout
           </Button>
         </HStack>

@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import PrivateLayout from "../PrivateLayout";
 
 import { useAuth } from "@/modules/auth/hooks/useAuth";
-import { render, screen } from "@/tests/render";
+import { render, screen } from "tests/render";
 
 vi.mock("@/modules/auth/hooks/useAuth");
 

@@ -2,7 +2,7 @@ import { expect } from "vitest";
 
 import SectionError from "../SectionError";
 
-import { render, screen } from "@/tests/render";
+import { render, screen } from "tests/render";
 
 describe("SectionError component", () => {
   it("should render properly with default values", () => {

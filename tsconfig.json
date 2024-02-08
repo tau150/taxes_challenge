@@ -27,7 +27,7 @@
       "public/*": ["public/"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "tests/render.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }],
 
 }
