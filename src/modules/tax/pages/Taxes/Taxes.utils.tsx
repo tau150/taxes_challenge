@@ -15,6 +15,8 @@ import { CiBoxList } from "react-icons/ci";
 
 import type { Tax } from "@/modules/tax/domain/Tax";
 
+const hasSubmissions = (tax: Tax) => tax?.submissions && tax.submissions.length > 0;
+
 export const renderTaxItems = (
   data: Tax[],
   onClickSendButton: (id: string) => void,
@@ -31,15 +33,17 @@ export const renderTaxItems = (
                   {tax.name}
                 </Heading>
                 <Box>
-                  <Tooltip hasArrow label="Submissions list" placement="top">
-                    <Button
-                      colorScheme="teal"
-                      data-testid={`list-submissions-button-${tax.year}`}
-                      leftIcon={<Icon as={CiBoxList} />}
-                      variant="ghost"
-                      onClick={() => onClickListButton(tax.id, tax.year)}
-                    />
-                  </Tooltip>
+                  {hasSubmissions(tax) && (
+                    <Tooltip hasArrow label="Submissions list" placement="top">
+                      <Button
+                        colorScheme="teal"
+                        data-testid={`list-submissions-button-${tax.year}`}
+                        leftIcon={<Icon as={CiBoxList} />}
+                        variant="ghost"
+                        onClick={() => onClickListButton(tax.id, tax.year)}
+                      />
+                    </Tooltip>
+                  )}
                   <Tooltip hasArrow label="Send submission" placement="top">
                     <Button
                       colorScheme="teal"

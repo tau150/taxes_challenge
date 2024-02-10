@@ -1,8 +1,7 @@
 import { expect } from "vitest";
+import { render } from "tests/render";
 
 import LoadingFullPage from "../LoadingFullPage";
-
-import { render } from "tests/render";
 
 describe("LoadingFullPage component", () => {
   it("should match with snapshot", () => {

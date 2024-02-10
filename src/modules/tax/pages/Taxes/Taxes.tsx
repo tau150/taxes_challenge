@@ -1,5 +1,6 @@
-import { Box, HStack } from "@chakra-ui/react";
+import { Box, HStack, Divider, Heading, Link as ChakraLink } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { renderTaxItems } from "./Taxes.utils";
 
@@ -8,7 +9,6 @@ import { generatePath } from "@/utils/routing";
 import { ROUTES } from "@/routes/routes.types";
 import { useGetTaxes } from "@/modules/tax/hooks/useGetTaxes";
 import LoadingFullPage from "@/Components/LoadingFullPage/LoadingFullPage";
-
 const Taxes = () => {
   const { data, isLoading } = useGetTaxes();
   const history = useHistory();
@@ -32,6 +32,15 @@ const Taxes = () => {
 
   return (
     <Box mt="8" p={["2", "8"]}>
+      <Box>
+        <ChakraLink as={Link} to={ROUTES.TAX_SUBMISSIONS}>
+          All submissions
+        </ChakraLink>
+      </Box>
+      <Divider mb="8" mt="2" />
+      <Heading mb="4" pb="4" size="md" textAlign="center">
+        Taxes Campaigns
+      </Heading>
       <HStack gap="8" wrap="wrap">
         {renderTaxItems(data as Tax[], handleSendButtonClick, handleListButtonClick)}
       </HStack>

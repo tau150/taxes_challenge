@@ -1,10 +1,10 @@
-import { expect, vi, Mock } from "vitest";
 import userEvent from "@testing-library/user-event";
+import { expect, vi, Mock } from "vitest";
+import { render, screen } from "tests/render";
 
 import PrivateLayout from "../PrivateLayout";
 
 import { useAuth } from "@/modules/auth/hooks/useAuth";
-import { render, screen } from "tests/render";
 
 vi.mock("@/modules/auth/hooks/useAuth");
 

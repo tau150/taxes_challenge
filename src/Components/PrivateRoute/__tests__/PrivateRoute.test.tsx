@@ -1,9 +1,9 @@
 import { expect, vi, Mock } from "vitest";
 import { MemoryRouter } from "react-router-dom";
+import { render, screen } from "tests/render";
 
 import PrivateRoute from "../PrivateRoute";
 
-import { render, screen } from "tests/render";
 import { useAuth } from "@/modules/auth/hooks/useAuth";
 
 vi.mock("@/modules/auth/hooks/useAuth");

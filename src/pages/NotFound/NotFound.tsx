@@ -8,7 +8,7 @@ const NotFound = () => {
     <VStack h="100vh" justify="center">
       <Heading color="green.300">404!</Heading>
       <Heading>Something went wrong</Heading>
-      <Text>The page you are looking for doesn't exist</Text>
+      <Text>The page you are looking for does not exist</Text>
       <Box mt="4">
         <Link to={ROUTES.ROOT}>
           <Button colorScheme="teal">Go to home</Button>
