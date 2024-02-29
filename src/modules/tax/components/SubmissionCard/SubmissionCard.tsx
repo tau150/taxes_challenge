@@ -6,17 +6,15 @@ import { TOAST_GENERIC_ERROR, TOAST_GENERIC_SUCCESS } from "@/constants/toast";
 import { QUERY_KEY } from "@/modules/tax/hooks/useGetTaxes";
 import { useDeleteTaxSubmission } from "@/modules/tax/hooks/useDeleteTaxSubmission";
 import DeleteResourceDialog from "@/Components/DeleteResourceDialog/DeleteResourceDialog";
+import SubmissionItem from "@/modules/tax/components/SubmissionItem/SubmissionItem";
 
 interface Props {
-  id: string;
-  name: string;
-  surname: string;
-  age: string;
-  year: string;
-  taxId: string;
+  properties: Record<string, string>;
 }
 
-const SubmissionCard = ({ name, surname, age, year, id, taxId }: Props) => {
+const NOT_SHOW_VALUES = ["id", "taxId"];
+
+const SubmissionCard = ({ properties }: Props) => {
   const queryClient = useQueryClient();
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -29,7 +27,7 @@ const SubmissionCard = ({ name, surname, age, year, id, taxId }: Props) => {
   });
 
   const handleDeleteSubmission = () => {
-    mutate({ id, taxId });
+    mutate({ id: properties.id, taxId: properties.taxId });
   };
 
   return (
@@ -42,30 +40,11 @@ const SubmissionCard = ({ name, surname, age, year, id, taxId }: Props) => {
       >
         <Box bg="green.200" borderTopRadius="10px" h="20px" />
         <CardBody>
-          <Text>
-            <Text as="span" fontWeight="bold">
-              Name:{" "}
-            </Text>
-            {name}
-          </Text>
-          <Text>
-            <Text as="span" fontWeight="bold">
-              Surname:{" "}
-            </Text>
-            {surname}
-          </Text>
-          <Text>
-            <Text as="span" fontWeight="bold">
-              Age:{" "}
-            </Text>
-            {age}
-          </Text>
-          <Text>
-            <Text as="span" fontWeight="bold">
-              Year:{" "}
-            </Text>
-            {year}
-          </Text>
+          {Object.entries(properties)
+            .filter(([key]) => !NOT_SHOW_VALUES.includes(key))
+            .map(([propertyKey, propertyItem]) => (
+              <SubmissionItem key={propertyKey} content={propertyItem} title={propertyKey} />
+            ))}
           <Box textAlign="right">
             <Button
               colorScheme="red"

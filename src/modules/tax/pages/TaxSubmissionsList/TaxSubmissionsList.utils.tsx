@@ -35,14 +35,7 @@ export const renderSubmissionsData = (
   return data.map((submission) => {
     return (
       <Box key={submission.id}>
-        <SubmissionCard
-          age={submission.age}
-          id={submission.id}
-          name={submission.name}
-          surname={submission.surname}
-          taxId={submission.taxId}
-          year={submission.year}
-        />
+        <SubmissionCard properties={submission} />
       </Box>
     );
   });
